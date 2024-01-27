@@ -1,24 +1,20 @@
-<template>
-	<div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-		<div class="bg-blue-600 h-2.5 rounded-full" 
-				style="{ width: (startProgress / maxSize) * 100 + '%' }">
-		</div>
-	</div>
-</template>
+<script setup>
+import { ref } from 'vue'
 
-<script>
-  import { defineComponent } from 'vue'
+// defineProps({
+//   start: Number,
+//   max: Number,
+// })
 
-  export default defineComponent({
-    props: {
-      startProgress: {
-        type: Number,
-        required: true
-      },
-      maxSize: {
-        type: Number,
-        required: true
-      }
-    }
-  })
+// Your script setup logic
 </script>
+
+<template>
+  <div class="w-full">
+    <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+      <div class="bg-blue-600 h-2.5 rounded-full" 
+          style="width: 30%">
+      </div>
+    </div>
+  </div>
+</template>

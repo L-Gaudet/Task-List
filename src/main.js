@@ -1,33 +1,13 @@
-import { createApp } from 'vue'
+import { createApp } from 'vue';
+import App from './App.vue'; // Import main App component
+import router from '../vue-router.config.mjs'; // Import router configuration
 import './style.css'
-import App from './App.vue'
-import VueRouter from 'vue-router';
-// import router from './router'
 
-import List from './pages/List.vue'
+// Create Vue instance
+const app = createApp(App);
 
-// const Home = { template: List }
-// const About = { template: '<div>About</div>' }
+// Use the router
+app.use(router);
 
-Vue.use(VueRouter);
-
-const routes = [
-  { path: '/home', component: List },
-  // { path: '/about', component: About },
-  // ... other routes
-];
-
-const router = new VueRouter({
-  routes // short for `routes: routes`
-});
-
-const app = createApp(App)
-
-app.mount('#app')
-
-new Vue({
-  router,
-  render: h => h(App)
-}).$mount('#app');
-
-// app.use(router)
+// Mount the app
+app.mount('#app');

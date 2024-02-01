@@ -1,15 +1,14 @@
 <script setup>
 // import HelloWorld from './components/HelloWorld.vue'
 import ProgressBar from './components/ProgressBar.vue'
+import Home from './pages/Home.vue';
 </script>
 
 <template>
   <header>
   </header>
-  <h1>hello</h1>
-  <ProgressBar />
-  <router-link to="/">Go to Home</router-link>
-  <router-view></router-view>
+  <!-- <div class="dragable"></div> -->
+  <Home />
 </template>
 
 
@@ -27,4 +26,9 @@ import ProgressBar from './components/ProgressBar.vue'
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
 } */
+  .dragable {
+    height: 20px;
+    width: 100vw;
+    -webkit-app-region: drag;
+  }
 </style>

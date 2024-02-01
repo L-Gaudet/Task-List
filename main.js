@@ -15,12 +15,15 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 580,
+    height: 700,
+    titleBarStyle: 'hidden',
     webPreferences: {
       preload: __dirname + '/preload.js'
     }
   })
+
+  // mainWindow.setBackgroundColor('#DAD7CD')
 
   // and load the index.html of the app.
   mainWindow.loadFile('dist/index.html')
@@ -51,3 +54,19 @@ app.on('window-all-closed', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
+// create tray icon
+// const {Tray, Menu, MenuItem, nativeImage } = require('electron');
+
+import { Tray, Menu } from 'electron';
+
+let tray
+
+app.whenReady().then(() => { 
+  // const icon = nativeImage.createFromPath('/my-app/src/media/list.clipboard.fill@2x.png')
+  // const icon = nativeImage.createFromPath(path.join(__dirname,'media','listclipboardfill@2x.png'))
+  tray = new Tray('icon') 
+  // tray = new Tray(require('path').resolve(__statics, 'list.clipboard.fill@2x.png'))  
+  let contextMenu = Menu.buildFromTemplate([{label: 'No tasks', role: 'unhide'}])
+  tray.setContextMenu(contextMenu)   
+})

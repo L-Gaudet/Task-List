@@ -1,16 +1,11 @@
 // main.js
-
-// Modules to control application life and create native browser window
-// const { app, BrowserWindow } = require('electron')
 import { app, BrowserWindow } from 'electron';
-// import { path } from 'path';
-// import { dirname } from 'path';
-// const path = require('path')
-
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { database } from './db/database.js'; 
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+const db = new database()
 
 const createWindow = () => {
   // Create the browser window.
